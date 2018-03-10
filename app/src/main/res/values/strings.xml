@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">crossIt</string>
+    <array name="boardSectorIds">topLeftBoardSector,topMidBoardSector,topRightBoardSector,
+                                        midLeftBoardSector,midMidBoardSector,midRightBoardSector,
+                                        bottomLeftBoardSector,bottomMidBoardSector,bottomRightBoardSector</array>
+
+
+
+</resources>
