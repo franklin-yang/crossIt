@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -17,10 +16,12 @@ public class PlayActivity extends Activity {
     private int[] bigOIds = {R.id.topLeft,R.id.topMid,R.id.topRight,
                     R.id.midLeft,R.id.midMid,R.id.midRight,
                     R.id.bottomLeft,R.id.bottomMid,R.id.bottomRight};
-    private LinearLayout piecesAvailableTray;
-    private Drawable sizePicked;
+    private LinearLayout bottomPieceTray;
     private int cellClickedId;
     private int[] player1Color = {255,255,0,0};
+    View piecePicker;
+    View traditionalTray;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,20 +38,14 @@ public class PlayActivity extends Activity {
         //construct 3x3 grid
         addBoardSector(gridSize);
 
-        piecesAvailableTray = findViewById(R.id.pieceTray);
-        piecesAvailableTray.getLayoutParams().height = gridSize;
-        piecesAvailableTray.setOnClickListener(boardCellClicked);
-        piecesAvailableTray.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(b){
+        bottomPieceTray = findViewById(R.id.bottomPieceTray);
+        bottomPieceTray.getLayoutParams().height = gridSize;
 
-                }
-                else{
+//        bottomPieceTray.setOnClickListener(boardCellClicked);
+        traditionalTray = getLayoutInflater().inflate(R.layout.pieces_available_tray,null);
 
-                }
-            }
-        });
+        bottomPieceTray.addView(traditionalTray);
+        piecePicker = getLayoutInflater().inflate(R.layout.piece_picker, null);
 
     }
 
@@ -70,34 +65,14 @@ public class PlayActivity extends Activity {
     View.OnClickListener boardCellClicked = new View.OnClickListener(){
         public void onClick(View view){
             view.requestFocus();
-            piecesAvailableTray.removeAllViews();
+            bottomPieceTray.removeAllViews();
             cellClickedId = view.getId();
-            View piecePicker = getLayoutInflater().inflate(R.layout.piece_picker, piecesAvailableTray);
-//            piecePicker.setOnClickListener(whatSize);
+            bottomPieceTray.addView(piecePicker);
 
         }
     };
-
-    View.OnClickListener whatSize = new View.OnClickListener(){
-        @Override
-        public void onClick(View view) {
-//            ImageView clicked = view.findViewById();
-            CellView cellClicked = view.findViewById(cellClickedId);
-
-
-
-        }
-    };
-
-//    private void pickPieceForCell(Drawable sizeSelected){
-//        RelativeLayout cell = findViewById(cellClickedId);
-//        ImageView cellImg = cell.findViewById(R.id.boardSectorImg);
-//        cellImg.setImageDrawable(sizeSelected);
-//
-//    }
 
     public void whichSize(View view) {
-        Log.v("which","size");
         int idClicked = view.getId();
         int sizeClicked;
         if (idClicked == R.id.big){
@@ -111,17 +86,6 @@ public class PlayActivity extends Activity {
         }
         RelativeLayout cellPieceAddedTo = findViewById(cellClickedId);
         ((CellView)cellPieceAddedTo.findViewById(R.id.theCell)).addPiece(sizeClicked, player1Color);
-//
     }
-
-//    View.OnClickListener testOverlay = new View.OnClickListener(){
-//        public void onClick(View view){
-//
-//            ViewGroup clicked = (ViewGroup) view;
-//            ImageView test = new ImageView(PlayActivity.this);
-//            test.setImageResource(R.drawable.med_blue);
-//            ((ViewGroup) view).addView(test);
-//        }
-//    };
 }
 

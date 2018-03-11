@@ -38,7 +38,6 @@ public class CellView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.v("called","i");
         float minDim = Math.min(canvas.getHeight(),canvas.getWidth());
         Paint test = new Paint();
         for(int i = 0; i < sizes.length; i++){
@@ -53,11 +52,10 @@ public class CellView extends View {
                     case 1: radius = 0.3f*minDim;
                                     correspondingColor.setStrokeWidth(minDim/30);
                                     break;
-                    case 2: radius = 0.4f*minDim;
+                    case 2: radius = 0.45f*minDim;
                                     correspondingColor.setStrokeWidth(minDim/100);
                                     break;
                 }
-                Log.v("color", Arrays.toString(colors[i]));
                 correspondingColor.setARGB(colors[i][0], colors[i][1], colors[i][2], colors[i][3]);
                 canvas.drawCircle(minDim/2,minDim/2, radius, correspondingColor);
 
