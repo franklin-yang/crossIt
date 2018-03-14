@@ -17,4 +17,7 @@ public class BoardSector {
     public void addToBoard(View board){
 
     }
+
+    public void whichSize(View view) {
+    }
 }

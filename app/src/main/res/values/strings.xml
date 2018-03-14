@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">crossIt</string>
     <array name="boardSectorIds">topLeftBoardSector,topMidBoardSector,topRightBoardSector,
-                                        midLeftBoardSector,midMidBoardSector,midRightBoardSector,
-                                        bottomLeftBoardSector,bottomMidBoardSector,bottomRightBoardSector</array>
+        midLeftBoardSector,midMidBoardSector,midRightBoardSector,
+        bottomLeftBoardSector,bottomMidBoardSector,bottomRightBoardSector
+    </array>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
