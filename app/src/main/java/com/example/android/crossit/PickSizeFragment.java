@@ -2,6 +2,7 @@ package com.example.android.crossit;
 
 
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -58,7 +59,9 @@ public class PickSizeFragment extends Fragment {
             view.requestFocus();
             int idClicked = view.getId();
             RelativeLayout cellPieceAddedTo = getActivity().findViewById(PlayActivity.cellClickedId);
-            cellPieceAddedTo.findViewById(idClicked).setVisibility(View.VISIBLE);
+            ImageView toChange = cellPieceAddedTo.findViewById(idClicked);
+            toChange.setColorFilter(Color.argb(PlayActivity.player1Color[0],PlayActivity.player1Color[1],PlayActivity.player1Color[2],PlayActivity.player1Color[3]));
+            toChange.setVisibility(View.VISIBLE);
 
 //            ((CellView) cellPieceAddedTo.(CellView.addPiece(sizeClicked, PlayActivity.player1Color));
         }

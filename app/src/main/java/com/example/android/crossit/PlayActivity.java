@@ -26,11 +26,8 @@ public class PlayActivity extends FragmentActivity {
     private int[] bigOIds = {R.id.topLeft,R.id.topMid,R.id.topRight,
             R.id.midLeft,R.id.midMid,R.id.midRight,
             R.id.bottomLeft,R.id.bottomMid,R.id.bottomRight};
-    private LinearLayout bottomPieceTray;
     public static int cellClickedId;
-    public static int[] player1Color = {255,255,0,0};
-    private View piecePicker;
-    private View traditionalTray;
+    public static int[] player1Color = {255,0,255,0};
     private View rootView;
     private int numPlayers;
     private int[][] piecesLeft;
