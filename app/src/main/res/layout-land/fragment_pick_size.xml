@@ -6,10 +6,10 @@
     android:layout_gravity="bottom"
     android:id="@+id/pick_size_fragment">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:id="@+id/pick_size_tray"
-            android:orientation="horizontal">
+            android:orientation="vertical">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -32,7 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

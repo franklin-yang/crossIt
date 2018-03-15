@@ -13,17 +13,17 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/big_blue"/>
+            android:src="@drawable/ic_large"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/med_blue"/>
+            android:src="@drawable/ic_medium"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/small_blue"/>
+            android:src="@drawable/ic_small"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -33,17 +33,18 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/big_blue"/>
+            android:src="@drawable/ic_large"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/med_blue"/>
+            android:src="@drawable/ic_medium"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/small_blue"/></RelativeLayout>
+            android:src="@drawable/ic_small"/>
+    </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -52,15 +53,15 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/big_blue"/>
+            android:src="@drawable/ic_large"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/med_blue"/>
+            android:src="@drawable/ic_medium"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/small_blue"/></RelativeLayout>
+            android:src="@drawable/ic_small"/></RelativeLayout>
 </android.support.v7.widget.LinearLayoutCompat>

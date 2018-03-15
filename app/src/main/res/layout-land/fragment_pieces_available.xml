@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:id="@+id/traditionalPieceTray"
+    android:orientation="vertical"
+    android:id="@+id/pieces_available_fragment"
     android:focusableInTouchMode="true">
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -13,17 +14,17 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/big_blue"/>
+            android:src="@drawable/ic_large"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/med_blue"/>
+            android:src="@drawable/ic_medium"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/small_blue"/>
+            android:src="@drawable/ic_small"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -33,17 +34,18 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/big_blue"/>
+            android:src="@drawable/ic_large"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/med_blue"/>
+            android:src="@drawable/ic_medium"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/small_blue"/></RelativeLayout>
+            android:src="@drawable/ic_small"/>
+    </RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -52,15 +54,15 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/big_blue"/>
+            android:src="@drawable/ic_large"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/med_blue"/>
+            android:src="@drawable/ic_medium"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/small_blue"/></RelativeLayout>
+            android:src="@drawable/ic_small"/></RelativeLayout>
 </android.support.v7.widget.LinearLayoutCompat>

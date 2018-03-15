@@ -1,5 +1,6 @@
 package com.example.android.crossit;
 
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,6 +38,8 @@ public class PlayActivity extends FragmentActivity {
     private View mPiecesAvailableFragment;
     private ViewPager bottomTray;
     private PagerAdapter pieceTrayAdapter;
+    private int gridSize;
+    private int[] canceledClick = new int[2];
 
     private static final int NUM_PAGES = 0;
 
@@ -45,31 +48,26 @@ public class PlayActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-
+        int orientation = getResources().getConfiguration().orientation;
         board = findViewById(R.id.board);
         rootView = findViewById(R.id.playArea);
         rootView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-//        rootView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View view, boolean b) {
-//                Log.v("fd","Fj");
-//                if(b){
-//                    bottomPieceTray.removeAllViews();
-//                }
-//            }
-//        });
-//        rootView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.v("clic","df");
-//                view.requestFocus();
-//            }
-//        });
-//
-        //determine gridSize
-        int playAreaHeight = Resources.getSystem().getDisplayMetrics().widthPixels / 3;
-        int playAreaWidth = Resources.getSystem().getDisplayMetrics().heightPixels / 4;
-        int gridSize = Math.min(playAreaHeight, playAreaWidth);
+
+        //determine gridSize based on orientation
+        int playAreaWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+        int playAreaHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+        int gridSizeByHeight= 0;
+        int gridSizeByWidth = 0;
+        if(orientation == Configuration.ORIENTATION_PORTRAIT) {
+            gridSizeByHeight = playAreaHeight/4;
+            gridSizeByWidth = playAreaWidth/3;
+            Log.d(""+gridSizeByHeight,""+gridSizeByWidth);
+        } else if(orientation == Configuration.ORIENTATION_LANDSCAPE){
+            gridSizeByHeight = playAreaWidth/4;
+            gridSizeByWidth = playAreaHeight/3;
+        }
+        gridSize = Math.min(gridSizeByHeight, gridSizeByWidth);
+
 
         class TrayAdapter extends FragmentPagerAdapter{
 
@@ -79,7 +77,6 @@ public class PlayActivity extends FragmentActivity {
 
             @Override
             public Fragment getItem(int position) {
-                Log.d(position+"","d");
                 switch (position) {
                     case 0:
                         return PiecesAvailableFragment.newInstance(position);
@@ -96,29 +93,33 @@ public class PlayActivity extends FragmentActivity {
             }
         }
 
-
-
         bottomTray = findViewById(R.id.pager);
         bottomTray.getLayoutParams().height = gridSize;
         pieceTrayAdapter = new TrayAdapter(getSupportFragmentManager());
         bottomTray.setAdapter(pieceTrayAdapter);
 
-//        //construct 3x3 grid
+        //construct 3x3 grid
         addBoardSector(gridSize);
+
+        if(orientation == Configuration.ORIENTATION_PORTRAIT) {
+        } else if(orientation == Configuration.ORIENTATION_LANDSCAPE){
+            bottomTray.getLayoutParams().height = ViewGroup.LayoutParams.MATCH_PARENT;
+            bottomTray.getLayoutParams().width = gridSize;
+        }
 
     }
 
+
+
     private void addBoardSector(int gridSize){
         for(int i = 0; i < 9; i++){
-            View boardSector = getLayoutInflater().inflate(R.layout.sample_cell_view,null);
+            View boardSector = getLayoutInflater().inflate(R.layout.cell,null);
             board.addView(boardSector);
             boardSector.setId(bigOIds[i]);
             boardSector.getLayoutParams().height = gridSize;
             boardSector.getLayoutParams().width = gridSize;
             boardSector.setOnClickListener(boardCellClicked);
         }
-
-
     }
 
     View.OnClickListener boardCellClicked = new View.OnClickListener(){
